@@ -86,7 +86,9 @@ class AppMeta:
 	def setup_details(self):
 		# support for --no-git
 		if not self.is_repo:
+			self.on_disk = True
 			self.repo = self.app_name = self.name
+			self.tag = self.branch = None
 			return
 		# fetch meta from installed apps
 		if self.bench and os.path.exists(os.path.join(self.bench.name, "apps", self.name)):
